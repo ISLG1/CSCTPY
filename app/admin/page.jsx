@@ -13,7 +13,7 @@ const AddProduct = () => {
   const [files, setFiles] = useState([]);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('Earphone');
+  const [category, setCategory] = useState('');
   const [price, setPrice] = useState('');
   const [offerPrice, setOfferPrice] = useState('');
 
@@ -129,7 +129,7 @@ const AddProduct = () => {
             >
               <option value="Vegetables">Vegetables</option>
               <option value="Fruits">Fruits</option>
-              <option value="Earphone">Others</option>
+              <option value="Others">Others</option>
             </select>
           </div>
           <div className="flex flex-col gap-1 w-32">
