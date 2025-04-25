@@ -9,15 +9,19 @@ import toast from "react-hot-toast";
 import { useRouter, useSearchParams } from 'next/navigation';
 import Loading from "@/components/Loading";
 
+function ProductId() {
+    const searchParams = useSearchParams();
+    return searchParams.get('id');
+}
+
 const EditProduct = () => {
   const { getToken } = useAppContext();
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const productId = searchParams.get('id');
+  const productId = ProductId();
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('Earphone');
+  const [category, setCategory] = useState('');
   const [price, setPrice] = useState('');
   const [offerPrice, setOfferPrice] = useState('');
   const [loading, setLoading] = useState(true);
