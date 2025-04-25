@@ -20,10 +20,10 @@ const Navbar = () => {
         alt="logo"
       />
       <div className="flex items-center gap-4 lg:gap-8 max-md:hidden">
-        <Link href="/" className="hover:text-gray-900 transition">
+        <Link href="/all-products" className="hover:text-gray-900 transition">
           Grocery
         </Link>
-        <Link href="/all-products" className="hover:text-gray-900 transition">
+        <Link href="/entertainment" className="hover:text-gray-900 transition">
           Entertainment
         </Link>
         <Link href="/" className="hover:text-gray-900 transition">
@@ -33,7 +33,7 @@ const Navbar = () => {
           Contact
         </Link>
 
-        {isSeller && <button onClick={() => router.push('/seller')} className="text-xs border px-4 py-1.5 rounded-full">Seller Dashboard</button>}
+        {isSeller && <button onClick={() => router.push('/admin')} className="text-xs border px-4 py-1.5 rounded-full">Admin Dashboard</button>}
 
       </div>
 
@@ -59,7 +59,7 @@ const Navbar = () => {
       </ul>
 
       <div className="flex items-center md:hidden gap-3">
-        {isSeller && <button onClick={() => router.push('/seller')} className="text-xs border px-4 py-1.5 rounded-full">Seller Dashboard</button>}
+        {isSeller && <button onClick={() => router.push('/admin')} className="text-xs border px-4 py-1.5 rounded-full">Admin Dashboard</button>}
         {
           user
             ? <>

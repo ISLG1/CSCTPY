@@ -4,11 +4,10 @@ const NewsLetter = () => {
   return (
     <div className="flex flex-col items-center justify-center text-center space-y-2 pt-8 pb-14">
       <h1 className="md:text-4xl text-2xl font-medium">
-        Subscribe now & get 20% off
+        Subscribe to our Newsletter
       </h1>
       <p className="md:text-base text-gray-500/80 pb-8">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry.
+        We send daily updates on our products and services. Don't miss out on our latest offers and discounts.
       </p>
       <div className="flex items-center justify-between max-w-2xl w-full md:h-14 h-12">
         <input

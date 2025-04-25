@@ -130,7 +130,7 @@ export const HomeIcon = () => (
   </svg>
 );
 
-export const productsDummyData = [
+/*export const productsDummyData = [
   {
     "_id": "67a1f4e43f34a77b6dde9144",
     "userId": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
@@ -274,7 +274,8 @@ export const productsDummyData = [
     "date": 1738668619198,
     "__v": 0
   }
-]
+] 
+*/
 
 export const userDummyData = {
   "_id": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
