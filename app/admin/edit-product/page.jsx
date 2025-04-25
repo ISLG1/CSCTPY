@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 import { useRouter, useSearchParams } from 'next/navigation';
 import Loading from "@/components/Loading";
 
-function ProductId() {
+async function ProductId() {
     const searchParams = useSearchParams();
     return searchParams.get('id');
 }
