@@ -43,7 +43,7 @@ const AddProduct = () => {
         setFiles([]);
         setName('');
         setDescription('');
-        setCategory('Earphone');
+        setCategory('Grocery');
         setPrice('');
         setOfferPrice('');
       } else {

@@ -200,9 +200,8 @@ const EditProduct = () => {
               onChange={(e) => setCategory(e.target.value)}
               value={category}
             >
-              <option value="Vegetables">Vegetables</option>
-              <option value="Fruits">Fruits</option>
-              <option value="Earphone">Others</option>
+              <option value="Grocery">Grocery</option>
+              <option value="Entertainment">Entertainment</option>
             </select>
           </div>
           <div className="flex flex-col gap-1 w-32">
