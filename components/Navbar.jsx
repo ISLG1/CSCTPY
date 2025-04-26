@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import { assets, BagIcon, BoxIcon, CartIcon, HomeIcon } from "@/assets/assets";
+import { assets, BagIcon, BoxIcon, CartIcon, HomeIcon, MenuIcon } from "@/assets/assets";
 import Link from "next/link"
 import { useAppContext } from "@/context/AppContext";
 import Image from "next/image";
@@ -33,7 +33,7 @@ const Navbar = () => {
           Contact
         </Link>
 
-        {isSeller && <button onClick={() => router.push('/admin')} className="text-xs border px-4 py-1.5 rounded-full">Admin Dashboard</button>}
+        {/*isSeller && <button onClick={() => router.push('/admin')} className="text-xs border px-4 py-1.5 rounded-full">Admin Dashboard</button>*/}
 
       </div>
 
@@ -43,6 +43,11 @@ const Navbar = () => {
           user
             ? <>
               <UserButton>
+                {isSeller && (
+                  <UserButton.MenuItems>
+                    <UserButton.Action label="Admin Dashboard" labelIcon={<MenuIcon />} onClick={() => router.push('/admin')} />
+                  </UserButton.MenuItems>
+                )}
                 <UserButton.MenuItems>
                   <UserButton.Action label="Cart" labelIcon={<CartIcon />} onClick={() => router.push('/cart')} />
                 </UserButton.MenuItems>
