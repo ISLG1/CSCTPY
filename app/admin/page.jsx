@@ -13,7 +13,7 @@ const AddProduct = () => {
   const [files, setFiles] = useState([]);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('Grocery');
   const [price, setPrice] = useState('');
   const [offerPrice, setOfferPrice] = useState('');
 
@@ -117,7 +117,7 @@ const AddProduct = () => {
           ></textarea>
         </div>
         <div className="flex items-center gap-5 flex-wrap">
-          <div className="flex flex-col gap-1 w-32">
+          <div className="flex flex-col gap-1 w-40">
             <label className="text-base font-medium" htmlFor="category">
               Category
             </label>
@@ -127,12 +127,11 @@ const AddProduct = () => {
               onChange={(e) => setCategory(e.target.value)}
               defaultValue={category}
             >
-              <option value="Vegetables">Vegetables</option>
-              <option value="Fruits">Fruits</option>
-              <option value="Others">Others</option>
+              <option value="Grocery">Grocery</option>
+              <option value="Entertainment">Entertainment</option>
             </select>
           </div>
-          <div className="flex flex-col gap-1 w-32">
+          <div className="flex flex-col gap-1 w-28">
             <label className="text-base font-medium" htmlFor="product-price">
               Product Price
             </label>
@@ -146,7 +145,7 @@ const AddProduct = () => {
               required
             />
           </div>
-          <div className="flex flex-col gap-1 w-32">
+          <div className="flex flex-col gap-1 w-28">
             <label className="text-base font-medium" htmlFor="offer-price">
               Offer Price
             </label>

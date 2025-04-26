@@ -4,7 +4,7 @@ const NewsLetter = () => {
   return (
     <div className="flex flex-col items-center justify-center text-center space-y-2 pt-8 pb-14">
       <h1 className="md:text-4xl text-2xl font-medium">
-        Subscribe to our Newsletter
+        Subscribe to our Daily Updates
       </h1>
       <p className="md:text-base text-gray-500/80 pb-8">
         We send daily updates on our products and services. Don't miss out on our latest offers and discounts.

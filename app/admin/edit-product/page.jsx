@@ -79,6 +79,7 @@ const EditProduct = () => {
 
   const handleImageChange = (e) => {
     setNewFiles(Array.from(e.target.files));
+    
   };
 
   const handleSubmit = async (e) => {
@@ -105,6 +106,7 @@ const EditProduct = () => {
     // Append new files to formData
     for (let i = 0; i < newFiles.length; i++) {
       formData.append('images', newFiles[i]);
+      console.log(newFiles[i]);
     }
 
     // Append existing image URLs as a JSON string
@@ -146,7 +148,6 @@ const EditProduct = () => {
                   type="file"
                   id={`image${index}`}
                   hidden
-                  multiple // Allow multiple file selection
                 />
                 <Image
                   key={index}

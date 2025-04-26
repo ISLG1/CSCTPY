@@ -20,13 +20,13 @@ const Navbar = () => {
         alt="logo"
       />
       <div className="flex items-center gap-4 lg:gap-8 max-md:hidden">
-        <Link href="/all-products" className="hover:text-gray-900 transition">
+        <Link href="/grocery" className="hover:text-gray-900 transition">
           Grocery
         </Link>
         <Link href="/entertainment" className="hover:text-gray-900 transition">
           Entertainment
         </Link>
-        <Link href="/" className="hover:text-gray-900 transition">
+        <Link href="/digitalseva" className="hover:text-gray-900 transition">
           Digital Seva
         </Link>
         <Link href="/" className="hover:text-gray-900 transition">
@@ -38,7 +38,7 @@ const Navbar = () => {
       </div>
 
       <ul className="hidden md:flex items-center gap-4 ">
-        <Image className="w-4 h-4" src={assets.search_icon} alt="search icon" />
+        {/*<Image className="w-4 h-4" src={assets.search_icon} alt="search icon" />*/}
         {
           user
             ? <>
@@ -68,7 +68,7 @@ const Navbar = () => {
                   <UserButton.Action label="Home" labelIcon={<HomeIcon />} onClick={() => router.push('/')} />
                 </UserButton.MenuItems>
                 <UserButton.MenuItems>
-                  <UserButton.Action label="Products" labelIcon={<BoxIcon />} onClick={() => router.push('/all-products')} />
+                  <UserButton.Action label="Grocery" labelIcon={<BoxIcon />} onClick={() => router.push('/grocery')} />
                 </UserButton.MenuItems>
                 <UserButton.MenuItems>
                   <UserButton.Action label="Cart" labelIcon={<CartIcon />} onClick={() => router.push('/cart')} />
