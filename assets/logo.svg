@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="614" height="486" viewBox="0 0 614 486">
-  <g id="Group_1" data-name="Group 1" transform="translate(-476.628 -190.432)">
-    <text id="CSC" transform="translate(794.628 394.432)" fill="#ff671f" font-size="272" font-family="BulletproofBB-Italic, Bulletproof BB" font-style="italic"><tspan x="-273.088" y="0">CSC</tspan></text>
-    <text id="TPY" transform="translate(743.628 608.432)" fill="#046a38" font-size="272" font-family="BulletproofBB-Italic, Bulletproof BB" font-style="italic"><tspan x="-266.424" y="0">TPY</tspan></text>
+<svg xmlns="http://www.w3.org/2000/svg" width="586.16" height="395.968" viewBox="0 0 586.16 395.968">
+  <g id="Group_1" data-name="Group 1" transform="translate(-504.404 -212.464)">
+    <path id="CSC" d="M205.088-181.968l-18.224,72.352L151.232-80.784h-29.1l13.056-52.5H90.576L69.36-48.688H171.632L159.664,0H0L44.88-181.7Zm104.176,77.52,7.072-28.56H273.088l79.7,84.32L340.816,0H182.24l11.424-48.688H262.48l-54.128-58.48,18.768-74.8H386.24L374-133.28l-35.9,28.832Zm259.76-77.52L550.8-109.616,515.168-80.784h-29.1l13.056-52.5H454.512L433.3-48.688H535.568L523.6,0H363.936l44.88-181.7Z" transform="translate(521.54 394.432)" fill="#ff671f"/>
+    <path id="TPY" d="M198.288-181.968l-12.24,48.96H135.456L102.272,0H44.608L77.792-133.008H27.2l12.24-48.96Zm178.976,0L356.592-99.824,239.36-40.528,229.3,0H171.632l45.424-181.968Zm-69.9,48.96H262.48L254.592-102l51.68-26.384ZM554.88-181.7,526.32-66.912v.272H474.368L457.776,0H400.112L416.7-66.64h-50.32L394.944-181.7h57.664l-16.32,66.368H480.9l16.32-66.368Z" transform="translate(477.204 608.432)" fill="#046a38"/>
   </g>
 </svg>
