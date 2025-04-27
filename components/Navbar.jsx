@@ -27,7 +27,7 @@ const Navbar = () => {
           Entertainment
         </Link>
         <Link href="/digitalseva" className="hover:text-gray-900 transition">
-          Digital Seva
+          Digitalized E-Seva
         </Link>
         <Link href="/" className="hover:text-gray-900 transition">
           Contact

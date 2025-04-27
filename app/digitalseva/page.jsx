@@ -12,7 +12,7 @@ const DigitalSeva = () => {
         <>
             <Navbar />
             <div className="flex flex-col items-start px-6 md:px-16 lg:px-32">
-                Digital Seva
+                Digitalized E-Seva Services (Coming Soon)
             </div>
             <Footer />
         </>
