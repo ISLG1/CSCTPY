@@ -288,6 +288,7 @@ export const userDummyData = {
   "__v": 0
 }
 
+/*
 export const orderDummyData = [
   {
     "_id": "67a20934b3db72db5cc77b2b",
@@ -413,6 +414,7 @@ export const orderDummyData = [
     "__v": 0
   }
 ]
+*/
 
 export const addressDummyData = [
   {

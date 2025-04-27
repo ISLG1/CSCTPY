@@ -58,7 +58,7 @@ const OrderSummary = () => {
 
       const { data } = await axios.post('/api/order/create',{
         address: selectedAddress._id,
-        items: cartItemsArray
+        items: cartItemsArray,
       },{
         headers: {Authorization:`Bearer ${token}`}
       })
@@ -160,12 +160,12 @@ const OrderSummary = () => {
             <p className="font-medium text-gray-800">Free</p>
           </div>
           <div className="flex justify-between">
-            <p className="text-gray-600">Tax (2%)</p>
-            <p className="font-medium text-gray-800">{currency}{Math.floor(getCartAmount() * 0.02)}</p>
+            <p className="text-gray-600">Tax (5%)</p>
+            <p className="font-medium text-gray-800">{currency}{Math.floor(getCartAmount() * 0.05)}</p>
           </div>
           <div className="flex justify-between text-lg md:text-xl font-medium border-t pt-3">
             <p>Total</p>
-            <p>{currency}{getCartAmount() + Math.floor(getCartAmount() * 0.02)}</p>
+            <p>{currency}{getCartAmount() + Math.floor(getCartAmount() * 0.05)}</p>
           </div>
         </div>
       </div>
