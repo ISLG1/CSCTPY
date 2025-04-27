@@ -78,6 +78,7 @@ const MyOrders = () => {
                                         <span>Method : UPI</span>
                                         <span>Date : {new Date(order.date).toLocaleDateString()}</span>
                                         <span>Status : {order.status}</span>
+                                        <span>Payment : {order.payment_status}</span>
                                     </p>
                                 </div>
                             </div>
