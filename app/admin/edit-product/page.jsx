@@ -27,6 +27,7 @@ const EditProduct = () => {
   const initialName = useRef(name);
   const initialDescription = useRef(description);
   const initialCategory = useRef(category);
+  const initialSubCategory = useRef(sub_category);
   const initialPrice = useRef(price);
   const initialOfferPrice = useRef(offerPrice);
 
