@@ -31,6 +31,7 @@ export async function PUT(request) {
         const name = data.get('name');
         const description = data.get('description');
         const category = data.get('category');
+        const sub_category = data.get('sub_category');
         const price = data.get('price');
         const offerPrice = data.get('offerPrice');
         const newFiles = data.getAll('images');
@@ -72,16 +73,17 @@ export async function PUT(request) {
             );
         }
 
-        // Final list of images = existing ones + newly uploaded ones
-        const finalImages = [...uploadedImages];
+        // Combine existing images with uploaded images
+        let finalImages = [...existingImages, ...uploadedImages];
 
         // Update fields if provided
         if (name) product.name = name;
         if (description) product.description = description;
         if (category) product.category = category;
+        if (sub_category) product.sub_category = sub_category;
         if (price) product.price = Number(price);
         if (offerPrice) product.offerPrice = Number(offerPrice);
-        if (finalImages.length > 0) product.image = finalImages;
+        product.image = finalImages;
 
         await product.save();
 

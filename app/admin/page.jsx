@@ -14,6 +14,7 @@ const AddProduct = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('Grocery');
+  const [sub_category, setsub_category] = useState('');
   const [price, setPrice] = useState('');
   const [offerPrice, setOfferPrice] = useState('');
 
@@ -22,21 +23,22 @@ const AddProduct = () => {
 
     const formData = new FormData()
 
-    formData.append('name',name)
-    formData.append('description',description)
-    formData.append('category',category)
-    formData.append('price',price)
-    formData.append('offerPrice',offerPrice)
+    formData.append('name', name)
+    formData.append('description', description)
+    formData.append('category', category)
+    formData.append('sub_category', sub_category)
+    formData.append('price', price)
+    formData.append('offerPrice', offerPrice)
 
     for (let i = 0; i < files.length; i++) {
-      formData.append('images',files[i])
+      formData.append('images', files[i])
     }
 
     try {
 
       const token = await getToken()
 
-      const { data } = await axios.post('/api/product/add',formData,{headers:{Authorization:`Bearer ${token}`}})
+      const { data } = await axios.post('/api/product/add', formData, { headers: { Authorization: `Bearer ${token}` } })
 
       if (data.success) {
         toast.success(data.message)
@@ -44,19 +46,30 @@ const AddProduct = () => {
         setName('');
         setDescription('');
         setCategory('Grocery');
+        setsub_category('');
         setPrice('');
         setOfferPrice('');
       } else {
         toast.error(data.message);
       }
 
-      
+
     } catch (error) {
       toast.error(error.message)
     }
 
 
   };
+
+  const grocerySubcategories = ['Fruits', 'Vegetables', 'Oil', 'Dal', 'Others'];
+  const entertainmentSubcategories = ['Speakers', 'TV', 'Toys', 'Others'];
+
+  let subcategoryOptions;
+  if (category === 'Grocery') {
+    subcategoryOptions = grocerySubcategories;
+  } else if (category === 'Entertainment') {
+    subcategoryOptions = entertainmentSubcategories;
+  }
 
   return (
     <div className="flex-1 min-h-screen flex flex-col justify-between">
@@ -116,8 +129,8 @@ const AddProduct = () => {
             required
           ></textarea>
         </div>
-        <div className="flex items-center gap-5 flex-wrap">
-          <div className="flex flex-col gap-1 w-40">
+        <div className="flex items-center gap-5">
+          <div className="flex flex-col gap-1 w-1/2">
             <label className="text-base font-medium" htmlFor="category">
               Category
             </label>
@@ -131,7 +144,26 @@ const AddProduct = () => {
               <option value="Entertainment">Entertainment</option>
             </select>
           </div>
-          <div className="flex flex-col gap-1 w-28">
+          <div className="flex flex-col gap-1 w-1/2">
+            <label className="text-base font-medium" htmlFor="sub_category">
+              Sub Category
+            </label>
+            <select
+              id="sub_category"
+              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
+              onChange={(e) => setsub_category(e.target.value)}
+              value={sub_category}
+              required
+            >
+              <option value="">Select {category} type</option>
+              {subcategoryOptions && subcategoryOptions.map((option) => (
+                <option key={option} value={option}>{option}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <div className="flex items-center gap-5">
+          <div className="flex flex-col gap-1 w-1/2">
             <label className="text-base font-medium" htmlFor="product-price">
               Product Price
             </label>
@@ -145,7 +177,7 @@ const AddProduct = () => {
               required
             />
           </div>
-          <div className="flex flex-col gap-1 w-28">
+          <div className="flex flex-col gap-1 w-1/2">
             <label className="text-base font-medium" htmlFor="offer-price">
               Offer Price
             </label>

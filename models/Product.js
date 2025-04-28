@@ -8,6 +8,7 @@ const productSchema = new mongoose.Schema({
     offerPrice: { type: Number, required: true },
     image: { type: Array, required: true },
     category: { type: String, required: true },
+    sub_category: { type: String, required: true }, // Add sub_category field
     date: { type: Number, required: true }
 })
 
