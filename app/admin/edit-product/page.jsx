@@ -15,7 +15,7 @@ const EditProduct = () => {
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('Grocery');
+  const [category, setCategory] = useState('');
   const [sub_category, setSubCategory] = useState('');
   const [price, setPrice] = useState('');
   const [offerPrice, setOfferPrice] = useState('');
@@ -27,26 +27,17 @@ const EditProduct = () => {
   const initialName = useRef(name);
   const initialDescription = useRef(description);
   const initialCategory = useRef(category);
-  const initialSubCategory = useRef(sub_category);
   const initialPrice = useRef(price);
   const initialOfferPrice = useRef(offerPrice);
 
     const [productId, setProductId] = useState(null);
-    const searchParams = useSearchParams();
-
-    const grocerySubcategories = ['Fruits', 'Vegetables', 'Oil', 'Dal', 'Others'];
-    const entertainmentSubcategories = ['Speakers', 'TV', 'Toys', 'Others'];
-
-    let subcategoryOptions;
-    if (category === 'Grocery') {
-        subcategoryOptions = grocerySubcategories;
-    } else if (category === 'Entertainment') {
-        subcategoryOptions = entertainmentSubcategories;
-    }
 
     useEffect(() => {
-      const productId = searchParams.get('id');
+        const searchParams = new URLSearchParams(window.location.search);
+        setProductId(searchParams.get('id'));
+    }, []);
 
+  useEffect(() => {
     const fetchProduct = async () => {
       try {
         setLoading(true);
@@ -87,7 +78,7 @@ const EditProduct = () => {
     if (productId) {
       fetchProduct();
     }
-  }, [searchParams, getToken]);
+  }, [productId, getToken]);
 
   const handleImageChange = (e) => {
     setNewFiles(Array.from(e.target.files));
@@ -108,9 +99,9 @@ const EditProduct = () => {
     if (category !== initialCategory.current) {
       formData.append('category', category);
     }
-     if (sub_category !== initialSubCategory.current) {
-         formData.append('sub_category', sub_category);
-     }
+    if (sub_category !== initialSubCategory.current) {
+      formData.append('sub_category', sub_category);
+    }
     if (price !== initialPrice.current) {
       formData.append('price', price);
     }
@@ -130,7 +121,7 @@ const EditProduct = () => {
     try {
       const token = await getToken();
 
-      const { data } = await axios.put(`/api/product/edit?id=${searchParams.get('id')}`, formData, {
+      const { data } = await axios.put(`/api/product/edit?id=${productId}`, formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -204,8 +195,8 @@ const EditProduct = () => {
             required
           ></textarea>
         </div>
-        <div className="flex items-center gap-5 flex-wrap">
-          <div className="flex flex-col gap-1 w-32">
+        <div className="flex items-center gap-5">
+          <div className="flex flex-col gap-1 w-1/2">
             <label className="text-base font-medium" htmlFor="category">
               Category
             </label>
@@ -219,23 +210,29 @@ const EditProduct = () => {
               <option value="Entertainment">Entertainment</option>
             </select>
           </div>
-           <div className="flex flex-col gap-1 w-32">
-                        <label className="text-base font-medium" htmlFor="sub_category">
-                            Sub Category
-                        </label>
-                        <select
-                            id="sub_category"
-                            className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
-                            onChange={(e) => setSubCategory(e.target.value)}
-                            value={sub_category}
-                        >
-                            <option value="">Select</option>
-                            {subcategoryOptions && subcategoryOptions.map((option) => (
-                                <option key={option} value={option}>{option}</option>
-                            ))}
-                        </select>
-                    </div>
-          <div className="flex flex-col gap-1 w-32">
+          <div className="flex flex-col gap-1 w-1/2">
+            <label className="text-base font-medium" htmlFor="sub_category">
+              Sub Category
+            </label>
+            <select
+              id="sub_category"
+              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
+              onChange={(e) => setSubCategory(e.target.value)}
+              value={subCategory}
+              required
+            >
+              <option value="">Select {category} type</option>
+              {subcategoryOptions && subcategoryOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-5 mt-5">
+          <div className="flex flex-col gap-1 w-1/2">
             <label className="text-base font-medium" htmlFor="product-price">
               Product Price
             </label>
@@ -249,7 +246,7 @@ const EditProduct = () => {
               required
             />
           </div>
-          <div className="flex flex-col gap-1 w-32">
+          <div className="flex flex-col gap-1 w-1/2">
             <label className="text-base font-medium" htmlFor="offer-price">
               Offer Price
             </label>
@@ -264,6 +261,7 @@ const EditProduct = () => {
             />
           </div>
         </div>
+
         <button type="submit" className="px-8 py-2.5 bg-orange-600 text-white font-medium rounded">
           Update
         </button>
