@@ -23,6 +23,17 @@ const EditProduct = () => {
   const [newFiles, setNewFiles] = useState([]); // Store newly selected files
   const [existingImages, setExistingImages] = useState([]); // Store existing image URLs
 
+  
+  const grocerySubcategories = ['Fruits', 'Vegetables', 'Oil', 'Dal', 'Others'];
+  const entertainmentSubcategories = ['Speakers', 'TV', 'Toys', 'Others'];
+
+  let subcategoryOptions;
+  if (category === 'Grocery') {
+    subcategoryOptions = grocerySubcategories;
+  } else if (category === 'Entertainment') {
+    subcategoryOptions = entertainmentSubcategories;
+  }
+
   // Use refs to track initial values
   const initialName = useRef(name);
   const initialDescription = useRef(description);
@@ -219,7 +230,7 @@ const EditProduct = () => {
               id="sub_category"
               className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
               onChange={(e) => setSubCategory(e.target.value)}
-              value={subCategory}
+              value={sub_category}
               required
             >
               <option value="">Select {category} type</option>

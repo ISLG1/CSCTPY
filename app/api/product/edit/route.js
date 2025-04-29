@@ -74,7 +74,7 @@ export async function PUT(request) {
         }
 
         // Combine existing images with uploaded images
-        let finalImages = [...existingImages, ...uploadedImages];
+        let finalImages = [...uploadedImages];
 
         // Update fields if provided
         if (name) product.name = name;

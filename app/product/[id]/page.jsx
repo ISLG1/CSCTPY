@@ -110,6 +110,10 @@ const Product = () => {
                                     <td className="text-gray-600 font-medium">Category</td>
                                     <td className="text-gray-800/50">{productData.category}</td>
                                 </tr>
+                                <tr>
+                                    <td className="text-gray-600 font-medium">Sub Category</td>
+                                    <td className="text-gray-800/50">{productData.sub_category}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
