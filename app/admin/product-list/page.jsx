@@ -67,11 +67,11 @@ const ProductList = () => {
           <table className=" table-fixed w-full overflow-hidden">
             <thead className="text-gray-900 text-sm text-left">
               <tr>
-              <th className="px-4 py-3 font-medium truncate">Product</th>
+              <th className="w-1/4 px-4 py-3 font-medium truncate">Product</th>
               <th className="px-4 py-3 font-medium truncate max-sm:hidden">Category</th>
               <th className="px-4 py-3 font-medium truncate max-sm:hidden">Sub Category</th>
               <th className="px-4 py-3 font-medium truncate">Price</th>
-              <th className="px-4 py-3 font-medium truncate">Action</th>
+              <th className="w-1/4 px-4 py-3 font-medium truncate">Action</th>
               </tr>
             </thead>
             <tbody className="text-sm text-gray-500">
