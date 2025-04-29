@@ -46,10 +46,10 @@ const MyOrders = () => {
             <div className="flex flex-col justify-between px-6 md:px-16 lg:px-32 py-6 min-h-screen">
                 <div className="space-y-5">
                     <h2 className="text-lg font-medium mt-6">My Orders</h2>
-                    {loading ? <Loading /> : (<div className="max-w-5xl border-t border-gray-300 text-sm">
+                    {loading ? <Loading /> : (<div className="w-full border-t border-gray-300 text-sm">
                         {orders.map((order, index) => (
                             <div key={index} className="flex flex-col md:flex-row gap-5 justify-between p-5 border-b border-gray-300">
-                                <div className="flex-1 flex gap-5 max-w-80">
+                                <div className="flex gap-5 md:w-1/4">
                                     <Image
                                         className="max-w-16 max-h-16 object-cover"
                                         src={assets.box_icon}
@@ -62,7 +62,7 @@ const MyOrders = () => {
                                         <span>Items : {order.items.length}</span>
                                     </p>
                                 </div>
-                                <div>
+                                <div className="md:w-1/5">
                                     <p>
                                         <span className="font-medium">{order.address.fullName}</span>
                                         <br />
@@ -74,7 +74,7 @@ const MyOrders = () => {
                                     </p>
                                 </div>
                                 <p className="font-medium my-auto">{currency}{order.amount}</p>
-                                <div>
+                                <div className="md:w-1/5">
                                     <p className="flex flex-col">
                                         <span>Method : UPI</span>
                                         <span>Date : {new Date(order.date).toLocaleDateString()}</span>

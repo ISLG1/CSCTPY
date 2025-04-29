@@ -10,7 +10,7 @@ const orderSchema = new mongoose.Schema({
     }],
     amount: { type: Number, required: true },
     address: { type: String, ref: 'address', required: true },
-    status: { type: String, enum: ['Order Placed', 'In-Progress', 'Order Delivered', 'Cancelled'], required: true, default: 'Order Placed' },
+    status: { type: String, enum: ['Order Placed', 'In-Progress', 'Out-for-Delivery', 'Order Delivered', 'Cancelled'], required: true, default: 'Order Placed' },
     payment_status: { type: String, enum: ['Pending', 'Processing', 'Received', 'Failed'], required: true, default: 'Pending' },
     date: { type: Number, required: true },
 })
