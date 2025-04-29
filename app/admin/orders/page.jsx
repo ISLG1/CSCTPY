@@ -58,7 +58,8 @@ const Orders = () => {
                                 />
                                 <p className="flex flex-col gap-3">
                                     <span className="font-medium">
-                                        {order.items.map((item) => (item.product ? item.product.name + ` x ${item.quantity}` : "Product Unavailable / Removed by Seller")).join(", ")}                                    </span>
+                                        {order.items.map((item) => `${item.product_name || "Product Unavailable"} x ${item.quantity}`).join(", ")}
+                                    </span>
                                     <span>Items : {order.items.length}</span>
                                 </p>
                             </div>

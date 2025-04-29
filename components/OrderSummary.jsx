@@ -47,7 +47,15 @@ const OrderSummary = () => {
         return toast.error('Please select an address')
       }
 
-      let cartItemsArray = Object.keys(cartItems).map((key) => ({product:key, product_name:product.name, quantity:cartItems[key]}))
+      let cartItemsArray = Object.keys(cartItems).map((key) => {
+        const productInfo = products.find(p => p._id === key);
+        return {
+          product: key,
+          product_name: productInfo?.name,
+          quantity: cartItems[key]
+        };
+      });
+
       cartItemsArray = cartItemsArray.filter(item => item.quantity > 0)
 
       if (cartItemsArray.length === 0) {
@@ -67,6 +75,7 @@ const OrderSummary = () => {
         toast.success(data.message)
         setCartItems({})
         router.push('/order-placed')
+        console.log(products.name)
       } else {
         toast.error(data.message)
       }
