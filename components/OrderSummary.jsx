@@ -11,8 +11,8 @@ const OrderSummary = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const upiId = "prabudulasi90@oksbi"; //Seller UPI ID prabudulasi90@oksbi
-  const upiLink = `upi://pay?pa=${upiId}&pn=Prabu%Dandapani&am=${getCartAmount() + Math.floor(getCartAmount() * 0.05)}&cu=INR`;
-  
+  const upiLink = `upi://pay?pa=${upiId}&pn=Prabu%20D&am=${getCartAmount() + Math.floor(getCartAmount() * 0.05)}&cu=INR`;
+  const upiRedirect = `upi://pay?pa=${upiId}&pn=Prabu%20D&cu=INR`;
 
   const [userAddresses, setUserAddresses] = useState([]);
 
@@ -178,8 +178,9 @@ const OrderSummary = () => {
             </div>
             <QRCode value={upiLink} size={200} />
             <div className="mt-4 p-2 border border-gray-400 rounded">
-              <p className="text-sm text-gray-600">UPI ID: {upiId}</p>
+              <a className="text-sm text-gray-600" href={upiRedirect}>UPI ID: {upiId}</a>
             </div>
+
           </div>
 
           <hr className="border-gray-500/30 my-5" />
