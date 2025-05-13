@@ -7,8 +7,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 const outfit = Outfit({ subsets: ['latin'], weight: ["300", "400", "500"] })
 
 export const metadata = {
-  title: "CSC Thattanchavady",
-  description: "Common Service Centre for TThattanchavady, Puducherry",
+  title: "Puduvai Market",
+  description: "",
   icons: {
     icon: "favicon.ico",
     shortcut: "favicon.ico",
